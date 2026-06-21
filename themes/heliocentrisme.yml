@@ -1,0 +1,19 @@
+wallpaper: /home/jokso/.config/qtile/assets/wallpapers/du_mouvement_de_la_terre_wallpaper.jpg
+home_icon: /home/jokso/.config/qtile/assets/icons/solar_system.gif
+font: "JetBrainsMono Nerd Font"
+
+
+colors:
+  background_darkest   : "000000"
+  background_dark      : "1D1E20"
+  background           : "2D322E"
+  background_light     : "8C8477" 
+  background_lightest  : "BCB49F"
+  selected             : "E4D88C"
+  white                : "ffffff" 
+  grey                 : "696F65"  
+  red                  : "8B5B3D" 
+  green                : "7DA460" 
+  blue                 : "486DA2" 
+  magenta              : "B7905B" 
+  cyan                 : "64ADB4"
