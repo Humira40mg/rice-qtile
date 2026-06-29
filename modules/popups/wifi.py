@@ -66,11 +66,6 @@ def _is_wifi_enabled() -> bool:
 
 # ── popup build ─────────────────────────────────────────────────────
 
-
-def _open_nm_dmenu(qtile) -> None:
-    subprocess.Popen(commands["show_wifi_cli"])
-
-
 def _build_popup(qtile) -> PopupRelativeLayout:
     ssid, quality = _get_wifi_info()
     wifi_on       = _is_wifi_enabled()
@@ -89,7 +84,7 @@ def _build_popup(qtile) -> PopupRelativeLayout:
             font=FONT,
             foreground=TEXT_PRIMARY,
             highlight=HIGHLIGHT,
-            mouse_callbacks={"Button1": lazy.function(_open_nm_dmenu)},
+            mouse_callbacks={"Button1": lazy.spawn(commands["show_wifi_cli"])},
         ),
         # ── Qualité du signal ────────────────────────────────────────────
         PopupText(
@@ -165,10 +160,10 @@ def _on_toggle_wifi(qtile) -> None:
 
 def _refresh_popup(qtile) -> None:
     global _popup
-    if _popup is not None:
-        _popup.kill()
-    _popup = _build_popup(qtile)
-    _popup.show(relative_to=3, relative_to_bar=True, x=(GAP*-2))
+    if not _popup or _popup._killed:
+       return
+
+    _popup.update_controls()
 
 
 # ── entry point ────────────────────────────────────────────────────────────
@@ -181,8 +176,9 @@ def show_wifi_popup(qtile) -> None:
     """
     global _popup
 
-    if _popup is not None:
+    if _popup and not _popup._killed:
         _popup.kill()
+        return
 
     _popup = _build_popup(qtile)
     _popup.show(relative_to=3, relative_to_bar=True, x=(GAP*-2))

@@ -15,12 +15,17 @@ class Status :
         
         self.username = data["username"]
         self.vpn = data["vpn"]
+        self.last_incident_date = data.get("last_incident_date")
+        self.last_boot_id = data.get("last_boot_id")
+
 
     def save(self):
         with open(path.expanduser("~/.config/qtile/saved_status.yml"), "w") as f:
             yaml.dump({
                 "username": self.username,
-                "vpn": self.vpn
+                "vpn": self.vpn,
+                "last_incident_date": self.last_incident_date,
+                "last_boot_id": self.last_boot_id,
                 }, f)
     
     def is_vpn_on(self):

@@ -5,6 +5,7 @@ from pathlib import Path
 from os import path, environ
 
 from modules.status_reader import Status
+from modules.utils.download_image import download_image
 
 _status = Status()
 
@@ -20,21 +21,6 @@ class DiscordAPI:
             "Authorization": token,
             "Content-Type": "application/json",
         }
-
-
-    def download_image(self, url: str, local_filename: str):
-        try:
-            response = requests.get(url, stream=True)
-            response.raise_for_status()  
-
-            with open(local_filename, 'wb') as file:
-                for chunk in response.iter_content(chunk_size=8192):
-                    file.write(chunk)
-        
-        except Exception:
-            if not path.exists(local_filename) : return None
-        
-        return local_filename
 
 
     def get_username_and_avatar_url(self, size: int = 256) -> str:
@@ -53,7 +39,7 @@ class DiscordAPI:
         else: 
             global_name = _status.username
 
-        return global_name, self.download_image(avatar_url, LOCAL_FILE_NAME)
+        return global_name, download_image(avatar_url, LOCAL_FILE_NAME)
 
 
 def get_discord_info(token):

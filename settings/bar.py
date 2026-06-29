@@ -7,15 +7,16 @@ from qtile_extras import widget
 from qtile_extras.widget.decorations import PowerLineDecoration, RectDecoration
 
 from user_profile import (
-    TERMINAL, 
     GAP, 
     theme, 
     BAR_SIZE_RATIO,
     )
 from modules.widgets.GifImage import GifImage
 from modules.popups.wifi import show_wifi_popup
-from modules.popups.home  import show_home_popup
+from modules.popups.home import show_home_popup
+from modules.popups.systray import show_systray_popup
 from modules.utils.system_utils import get_current_resolution
+from modules.commands import commands
 
 powerline = {
     "decorations": [
@@ -28,7 +29,6 @@ BAR_SIZE = floor(res_y/BAR_SIZE_RATIO)
 
 topbar = bar.Bar(
             [
-                # widget.CurrentLayout(),
                 GifImage(
                     filename=theme.home_icon,
                     margin=GAP,
@@ -60,9 +60,6 @@ topbar = bar.Bar(
                     },
                     name_transform=lambda name: name.upper(),
                 ),
-                # widget.TextBox("default config", name="default"),
-                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
-                # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 widget.Spacer(),
                 widget.Clock(format="%H:%M"),
                 widget.Spacer(**powerline),
@@ -72,12 +69,16 @@ topbar = bar.Bar(
                     show_ssid=False,
                     padding=10,
                     **powerline,
-                ),          # icône wifi avec signal
-                # extrawidget.UPowerWidget(),      # batterie avec icône native
-                # extrawidget.PulseVolume(),       # volume pulseaudio/pipewire
-                #extrawidget.GlobalMenu(),        # menu GTK dans la barre (comme macOS)
-                #extrawidget.SnapcastClient(),   
-                # widget.StatusNotifier(),
+                ),     
+
+                widget.TextBox(
+                    text="󰂯",
+                    fontsize=25,
+                    background= theme.colors["background"],
+                    mouse_callbacks={"Button1": lazy.spawn(commands["bluetooth"])},
+                    **powerline,
+                ),
+
                 # widget.Systray(),
                 widget.Battery(
                     charge_char="󰂄",
@@ -88,11 +89,11 @@ topbar = bar.Bar(
                     unknown_char="󱟩",
                     update_interval=30,
                     show_short_text=False,
-                    background=theme.colors["background"],
-                    low_foreground=theme.colors["red"],
+                    background=theme.colors["background_light"],
+                    low_foreground=theme.colors["really_red"],
                     low_percentage=0.20,
                     format="{char} {percent:2.0%}",
-                    mouse_callbacks={"Button1": lazy.spawn(f"{TERMINAL} --class btop -e btop")},
+                    mouse_callbacks={"Button1": lazy.function(show_systray_popup)},
                     padding=10,
                 ),
             ],

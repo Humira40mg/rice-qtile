@@ -9,8 +9,10 @@ class Theme :
         with open(self.path) as f:
             data = yaml.safe_load(f)
         
-        self.wallpaper = data["wallpaper"]
-        self.home_icon = data["home_icon"]
+        self.wallpaper = path.expanduser(data["wallpaper"])
+        self.home_icon = path.expanduser(data["home_icon"])
+        self.fallback_image = path.expanduser(data["fallback_image"])
+
         self.colors = data["colors"]
 
         self.font = data["font"]

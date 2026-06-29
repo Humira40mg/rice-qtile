@@ -31,3 +31,26 @@ def get_current_resolution():
     
     except Exception as e:
         return 1920, 1080
+
+
+import os
+import glob
+
+def is_plugged_to_power():
+    power_supplies = glob.glob("/sys/class/power_supply/*")
+
+    for supply in power_supplies:
+        supply_type_path = os.path.join(supply, "type")
+        if not os.path.exists(supply_type_path):
+            continue
+
+        with open(supply_type_path) as f:
+            supply_type = f.read().strip()
+
+        if supply_type in ("Mains", "USB"):
+            online_path = os.path.join(supply, "online")
+            if os.path.exists(online_path):
+                with open(online_path) as f:
+                    return f.read().strip() == "1"
+
+    return None  

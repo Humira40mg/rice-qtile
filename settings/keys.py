@@ -10,11 +10,16 @@ from user_profile import (
     mod,
 )
 
+from modules.commands import commands
+
+from modules.popups.keys_related.volume import show_volume_popup
+from modules.popups.keys_related.brightness import show_brightness_popup
+
 keys = [
     # A list of available commands that can be bound to keys can be found
     # at https://docs.qtile.org/en/latest/manual/config/lazy.html
     # Switch between windows
-    Key([mod], "d", lazy.spawn("rofi -show drun"), desc="Open rofi drun"),
+    Key([mod], "d", lazy.spawn(commands["launcher"]), desc="Open rofi drun"),
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
     Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
@@ -62,7 +67,12 @@ keys = [
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
 
-    Key([], "Print", lazy.spawn("flameshot gui"), desc="Screenshot"),
+    Key([], "Print", lazy.spawn(commands["screenshot"]), desc="Screenshot"),
+    Key([], "F1", lazy.function(show_volume_popup, commands["volume"]["mute"]), desc="Make the volume off"),
+    Key([], "F2", lazy.function(show_volume_popup, commands["volume"]["down"]), desc="Make the volume down"),
+    Key([], "F3", lazy.function(show_volume_popup, commands["volume"]["up"]), desc="Make the volume up"),
+    Key([], "F9", lazy.function(show_brightness_popup, commands["brightness"]["down"]), desc="Make the brightness down"),
+    Key([], "F10", lazy.function(show_brightness_popup, commands["brightness"]["up"]), desc="Make the brightness up"),
 ]
 
 # Add key bindings to switch VTs in Wayland.

@@ -1,5 +1,6 @@
-wallpaper: /home/jokso/.config/qtile/assets/wallpapers/du_mouvement_de_la_terre_wallpaper.jpg
-home_icon: /home/jokso/.config/qtile/assets/icons/solar_system.gif
+wallpaper: ~/.config/qtile/assets/wallpapers/du_mouvement_de_la_terre_wallpaper.jpg
+home_icon: ~/.config/qtile/assets/icons/solar_system.gif
+fallback_image: ~/.config/qtile/assets/images/Copernican_heliocentrism_diagram.jpg
 font: "JetBrainsMono Nerd Font"
 
 
@@ -17,3 +18,5 @@ colors:
   blue                 : "486DA2" 
   magenta              : "B7905B" 
   cyan                 : "64ADB4"
+  really_red           : "F10000"
+  yellow               : "E4D88C"  
