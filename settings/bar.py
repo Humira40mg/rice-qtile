@@ -31,6 +31,7 @@ topbar = bar.Bar(
             [
                 GifImage(
                     filename=theme.home_icon,
+                    frame_interval=0.04/theme.icon_speed_ratio,
                     margin=GAP,
                     mouse_callbacks={
                         "Button1": lazy.function(show_home_popup), # lambda: qtile.spawn("rofi -show drun"),
@@ -98,7 +99,8 @@ topbar = bar.Bar(
                 ),
             ],
             40,
-            margin=[GAP, GAP, 0, GAP]
+            margin=[GAP, GAP, 0, GAP],
+            background=theme.colors["background_darkest"],
             # border_width=[2, 0, 2, 0],  # Draw top and bottom borders
             # border_color=["ff00ff", "000000", "ff00ff", "000000"]  # Borders are magenta
         )

@@ -1,0 +1,23 @@
+wallpaper: ~/.config/qtile/assets/wallpapers/the_disappearance_of_teto.jpg
+
+home_icon: ~/.config/qtile/assets/icons/teto_dance.gif
+home_icon_speed_ratio: 0.3
+
+font: "JetBrainsMono Nerd Font"
+
+neofetch_conf: teto.conf
+
+colors:
+  background_darkest   : "0A0A0A"  
+  background_dark      : "141414"  
+  background           : "1E1E1E"  
+  background_light     : "4A4542"  
+  background_lightest  : "D9D2C4"  
+  selected             : "C41E1E"  
+  white                : "FFFFFF"  
+  grey                 : "5C5754"  
+  red                   : "6B1E23"  
+  green                 : "8C5660"  
+  blue                  : "9ED4E0"  
+  really_red            : "E10600"  
+  yellow                : "F1CED4"  

@@ -3,6 +3,10 @@ from dotenv import load_dotenv
 from modules.apis.discord_api import get_discord_info
 from os import environ, path
 
+# ====================================
+theme = Theme("jojo.yml")
+# ====================================
+
 load_dotenv()
 DISCORD_TOKEN = environ.get('DISCORD_TOKEN')
 discordname, discordavatarurl = get_discord_info(DISCORD_TOKEN)
@@ -15,8 +19,6 @@ TEXT_EDITOR = "gedit"
 
 USER_IMAGE = discordavatarurl or "assets/images/linux_logo.png"
 USERNAME = discordname or "JoKSo"
-
-theme = Theme("heliocentrisme.yml")
 
 # names of desktop files in /usr/share/applications/
 FAVORITES_APP = ["spotify", "discord", "vscodium", "org.kde.kdenlive", "others"] # others = show all apps

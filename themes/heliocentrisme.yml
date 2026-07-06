@@ -1,8 +1,11 @@
 wallpaper: ~/.config/qtile/assets/wallpapers/du_mouvement_de_la_terre_wallpaper.jpg
+
 home_icon: ~/.config/qtile/assets/icons/solar_system.gif
-fallback_image: ~/.config/qtile/assets/images/Copernican_heliocentrism_diagram.jpg
+home_icon_speed_ratio: 1
+
 font: "JetBrainsMono Nerd Font"
 
+neofetch_conf: heliocentrisme.conf
 
 colors:
   background_darkest   : "000000"
@@ -15,8 +18,6 @@ colors:
   grey                 : "696F65"  
   red                  : "8B5B3D" 
   green                : "7DA460" 
-  blue                 : "486DA2" 
-  magenta              : "B7905B" 
-  cyan                 : "64ADB4"
+  blue                 : "486DA2"
   really_red           : "F10000"
   yellow               : "E4D88C"  

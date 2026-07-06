@@ -1,0 +1,23 @@
+wallpaper: ~/.config/qtile/assets/wallpapers/miku&teto.png
+
+home_icon: ~/.config/qtile/assets/icons/miKube.gif
+home_icon_speed_ratio: 1
+
+font: "JetBrainsMono Nerd Font"
+
+neofetch_conf: miku.conf
+
+colors:
+  background_darkest   : "0A0B10"  # noir bleuté profond (fond de la ruelle)
+  background_dark      : "12141C"  # noir-bleu légèrement plus clair
+  background           : "1C1F2B"  # bleu-gris foncé (manteau de Miku)
+  background_light     : "3E3A4A"  # violet-gris sourd (ombres/veste)
+  background_lightest  : "D6D3DE"  # blanc-lavande pâle (peau, reflets)
+  selected             : "E8C547"  # jaune néon doré (enseigne "UNIAD")
+  white                : "FFFFFF"  # blanc pur
+  grey                 : "5A5C68"  # gris bleuté neutre (structures/fond)
+  red                  : "A8324A"  # rouge bordeaux (cheveux/veste de Teto)
+  green                : "3E7A82"  # teal profond — secondary1 (reflet néon cyan)
+  blue                 : "2C4B73"  # bleu nuit (cheveux de Miku)
+  yellow               : "D9B24C"  # or plus doux — secondary2 (néon en fond)
+  really_red           : "E8354F"  # rouge vif éclatant (liseré du manteau)

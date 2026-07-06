@@ -19,7 +19,13 @@ def init_hooks():
         subprocess.Popen(["picom", "--config", f"{HOME}/.config/picom/picom.conf"])
         subprocess.Popen(["dunst"]) # notif server
 
-        subprocess.Popen(["betterlockscreen", "-u", f"{theme.wallpaper}"])
+        subprocess.Popen(["libinput-gestures-setup", "start"]) # touchpad events
 
         if status.is_vpn_on():
             subprocess.Popen(["bash", "-c", commands["vpn_on"]])
+
+    @hook.subscribe.startup
+    def start():
+        subprocess.Popen(["cp", f"{HOME}/.config/neofetch/{theme.neofetch}", f"{HOME}/.config/neofetch/config.conf"])
+        subprocess.Popen(["betterlockscreen", "-u", f"{theme.wallpaper}"])
+  

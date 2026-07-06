@@ -1,0 +1,23 @@
+wallpaper: ~/.config/qtile/assets/wallpapers/jojo.jpg
+
+home_icon: ~/.config/qtile/assets/icons/dio_walk.gif
+home_icon_speed_ratio: 0.75
+
+font: "JetBrainsMono Nerd Font"
+
+neofetch_conf: jojo.conf
+
+colors:
+  background_darkest   : "0D0E10"  
+  background_dark      : "16181C"  
+  background           : "1F2937"  
+  background_light     : "3D4550"  
+  background_lightest  : "E8E1D3"  
+  selected             : "D4A62A"  
+  white                : "FFFFFF"  
+  grey                 : "5E6670"  
+  red                  : "B8283A"  
+  green                : "2E7A72"  
+  blue                 : "3A5DA8"  
+  yellow               : "E8951F"  
+  really_red           : "E0293D"  

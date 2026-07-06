@@ -10,9 +10,12 @@ class Theme :
             data = yaml.safe_load(f)
         
         self.wallpaper = path.expanduser(data["wallpaper"])
-        self.home_icon = path.expanduser(data["home_icon"])
-        self.fallback_image = path.expanduser(data["fallback_image"])
 
-        self.colors = data["colors"]
+        self.home_icon = path.expanduser(data["home_icon"])
+        self.icon_speed_ratio = data["home_icon_speed_ratio"]
 
         self.font = data["font"]
+
+        self.neofetch = data["neofetch_conf"]
+
+        self.colors = data["colors"]
