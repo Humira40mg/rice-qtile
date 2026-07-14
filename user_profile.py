@@ -1,10 +1,21 @@
 from modules.theme_reader import Theme
 from dotenv import load_dotenv
 from modules.apis.discord_api import get_discord_info
-from os import environ, path
+from os import environ, path, listdir
+import random
+
+def get_random_theme(theme_dir="~/.config/qtile/themes"):
+    theme_dir_path = path.expanduser(theme_dir)
+
+    files = [f for f in listdir(theme_dir_path) if path.isfile(path.join(theme_dir_path, f))]
+    
+    if not files or len(files) == 0:
+        return "heliocentrisme.yml" 
+    
+    return random.choice(files)
 
 # ====================================
-theme = Theme("jojo.yml")
+theme =  Theme(get_random_theme()) #Theme("heliocentrisme.yml")
 # ====================================
 
 load_dotenv()

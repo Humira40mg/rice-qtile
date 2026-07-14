@@ -11,7 +11,10 @@ from user_profile import (
     theme, 
     BAR_SIZE_RATIO,
     )
+
 from modules.widgets.GifImage import GifImage
+from modules.widgets.WindowControls import WindowControls
+
 from modules.popups.wifi import show_wifi_popup
 from modules.popups.home import show_home_popup
 from modules.popups.systray import show_systray_popup
@@ -36,11 +39,9 @@ topbar = bar.Bar(
                     mouse_callbacks={
                         "Button1": lazy.function(show_home_popup), # lambda: qtile.spawn("rofi -show drun"),
                     },
-                ),
-                widget.Spacer(
-                    length=1,
                     **powerline,
                 ),
+                
                 widget.GroupBox(
                     active=theme.colors["white"],         
                     inactive=theme.colors["grey"],         
@@ -61,9 +62,20 @@ topbar = bar.Bar(
                     },
                     name_transform=lambda name: name.upper(),
                 ),
+
                 widget.Spacer(),
                 widget.Clock(format="%H:%M"),
                 widget.Spacer(**powerline),
+
+                WindowControls(
+                    max_color=theme.colors["green"],
+                    float_color=theme.colors["yellow"],
+                    close_color=theme.colors["red"], 
+                ),
+                widget.Spacer(
+                    length=1,
+                    **powerline,
+                ),
                 widget.WiFiIcon(
                     background= theme.colors["background_dark"],
                     mouse_callbacks={"Button1": lazy.function(show_wifi_popup)},

@@ -1,5 +1,4 @@
-from libqtile import widget
-from qtile_extras import widget as extrawidget
+from qtile_extras import widget
 import itertools
 from PIL import Image as PILImage
 
