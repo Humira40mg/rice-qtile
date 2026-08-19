@@ -1,7 +1,7 @@
 wallpaper: ~/.config/qtile/assets/wallpapers/jojo.jpg
 
 home_icon: ~/.config/qtile/assets/icons/dio_walk.gif
-home_icon_speed_ratio: 0.75
+home_icon_speed_ratio: 0.4
 
 font: "JetBrainsMono Nerd Font"
 
