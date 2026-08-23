@@ -70,9 +70,6 @@ class WindowControls(base._Widget):
             self.drawer.ctx.fill()
             x += self.button_size + self.spacing
 
-        # ATTENTION: nom de méthode à vérifier selon ta version installée.
-        # C'est ici que qtile-extras applique les RectDecoration par-dessus
-        # le contenu qu'on vient de dessiner.
         if hasattr(self, "draw_at_default_position"):
             self.draw_at_default_position()
         else:

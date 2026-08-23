@@ -1,4 +1,6 @@
 import subprocess
+import os
+import glob
 
 def get_current_resolution():
     """
@@ -32,9 +34,6 @@ def get_current_resolution():
     except Exception as e:
         return 1920, 1080
 
-
-import os
-import glob
 
 def is_plugged_to_power():
     power_supplies = glob.glob("/sys/class/power_supply/*")
