@@ -15,7 +15,7 @@ def get_random_theme(theme_dir="~/.config/qtile/themes"):
     return random.choice(files)
 
 # ====================================
-theme =  Theme(get_random_theme()) #Theme("heliocentrisme.yml")
+theme = Theme("heliocentrisme.yml") #Theme(get_random_theme())
 # ====================================
 
 load_dotenv()
